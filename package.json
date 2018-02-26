@@ -1,0 +1,36 @@
+{
+  "name": "crypto-messages-protocol",
+  "version": "1.0.0",
+  "main": "application.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "babel-node config/application.js",
+    "create-block": "babel-node tasks/create-block.js"
+  },
+  "bin": {
+    "cnp": "config/application.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-preset-es2015": "^6.24.1",
+    "jest": "^22.3.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "crypto2": "^1.0.2",
+    "encoding-down": "^4.0.0",
+    "express": "^4.16.2",
+    "i18n": "^0.8.3",
+    "inquirer": "^5.1.0",
+    "inquirer-async": "^1.1.0",
+    "js-string-compression": "^1.0.1",
+    "leveldown": "^3.0.0",
+    "levelup": "^2.0.2",
+    "merkle": "^0.6.0",
+    "object-sizeof": "^1.2.0",
+    "ping-subnet": "^1.1.2",
+    "winston": "^2.4.0",
+    "ws": "^4.1.0"
+  }
+}

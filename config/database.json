@@ -1,0 +1,5 @@
+{
+  "BLOCKS_DB_PATH": "./data/db/BlocksDB",
+  "BLOCKS_INDEX_DB_PATH": "./data/db/BlocksIndexDB",
+  "NOTES_DB_PATH": "./data/db/NotesDB"
+}
