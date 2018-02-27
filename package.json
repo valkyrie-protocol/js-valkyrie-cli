@@ -21,6 +21,7 @@
     "crypto2": "^1.0.2",
     "encoding-down": "^4.0.0",
     "express": "^4.16.2",
+    "figlet": "^1.2.0",
     "i18n": "^0.8.3",
     "inquirer": "^5.1.0",
     "inquirer-async": "^1.1.0",

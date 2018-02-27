@@ -1,5 +1,6 @@
 import http from 'http'
 import SubnetsPinger from 'ping-subnet'
+import figlet from 'figlet'
 import Logger from '~/config/Logger'
 import Account from '~/config/Account'
 import Server from '~/config/Server'
@@ -7,6 +8,7 @@ import Server from '~/config/Server'
 import '~/config/initializers'
 
 async function init(){
+  console.log(figlet.textSync('Crypto Notes Protocol'))
   Logger.info(Logger.SCOPES.CORE,'\tInitializing application Core')
   try {
 
