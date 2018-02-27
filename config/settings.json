@@ -1,4 +1,5 @@
 {
+  "appName": "Crypto Notes Protocol",
   "appEnv": "CNP_ENV",
   "serverPort": 3333,
   "devLogLevel": "debug"

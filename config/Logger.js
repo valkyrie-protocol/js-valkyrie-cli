@@ -11,7 +11,7 @@ const Logger = new (winston.Logger)({
       formatter: function(options) {
         return options.timestamp() + ' ' +
           config.colorize(options.level, `[${options.level.toUpperCase()}]`) + ' ' +
-          (options.message ? options.message : '') +
+          (options.message ? options.message.replace(/\]/,']\t') : '') +
           (options.meta && Object.keys(options.meta).length ? '\n\t'+ JSON.stringify(options.meta) : '' );
       }
     })

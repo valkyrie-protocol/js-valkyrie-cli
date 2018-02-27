@@ -4,6 +4,7 @@ import Logger from '~/config/Logger'
 import DNS from '~/app/models/DNS'
 import accountData from '~/config/account.json'
 import inquirer from 'inquirer'
+import i18n from '~/config/locales'
 
 const account = {
   publicKey: null,
@@ -19,11 +20,11 @@ export default class Account{
     let secretPrivateKey
 
     if(accountData){
-      Logger.info(Logger.SCOPES.ACCOUNT, '\tLoading account data')
+      Logger.info(Logger.SCOPES.ACCOUNT, i18n.t('init.account.loading'))
       publicKey = accountData.publicKey
       address = accountData.address
     } else {
-      Logger.info(Logger.SCOPES.ACCOUNT, '\tCreating new account')
+      Logger.info(Logger.SCOPES.ACCOUNT, i18n.t('init.account.creating'))
       const keys = await crypto2.createKeyPair()
       privateKey = keys.privateKey
       publicKey = keys.publicKey
@@ -47,7 +48,7 @@ export default class Account{
     }
 
     address = await DNS.add(publicKey)
-    Logger.info(Logger.SCOPES.ACCOUNT, `\tAccount address is: ${address}`)
+    Logger.info(Logger.SCOPES.ACCOUNT, i18n.t('init.account.address', {address}))
 
     account.address = address
     account.publicKey = publicKey

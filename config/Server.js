@@ -6,8 +6,7 @@ import bodyParser from 'body-parser'
 import settings from '~/config/settings.json'
 import Routes from '~/config/Routes'
 import BlocksController from '~/app/controllers/BlocksController'
-
-
+import i18n from '~/config/locales'
 
 class Server{
   static init(){
@@ -33,7 +32,7 @@ class Server{
 
     })
 
-    this.server.listen(this.port,  () => Logger.info(Logger.SCOPES.SERVER,`\tServer listening on port ${this.port}`))
+    this.server.listen(this.port,  () => Logger.info(Logger.SCOPES.SERVER, i18n.t('init.server.ready', {port: this.port})))
   }
 }
 

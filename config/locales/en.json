@@ -1,0 +1,21 @@
+{"translation":
+    {
+      "init": {
+        "core": "Initializing application Core",
+        "peers": {
+          "searching": "Searching for responding peers",
+          "found": "Alive peer {{ip}} has been found",
+          "notResponding": "Peer {{ip}} is not responding",
+          "connected": "{{peersCount}} responding peers are connected"
+        },
+        "server": {
+          "ready": "Server listening on port {{port}}"
+        },
+        "account": {
+          "loading": "Loading account data",
+          "creating": "Creating new account",
+          "address": "Account address is: {{address}}"
+        }
+      }
+    }
+}

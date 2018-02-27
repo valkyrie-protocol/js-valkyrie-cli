@@ -1,0 +1,21 @@
+{"translation":
+    {
+      "init": {
+        "core": "Inicializacja silnika aplikacji",
+        "peers": {
+          "searching": "Wyszukiwanie aktywnych węzłów",
+          "found": "Znaleziono aktywny węzeł {{ip}}",
+          "notResponding": "Węzeł {{ip}} nie odpowiada",
+          "connected": "{{peersCount}} węzłów nawiązało połączenie"
+        },
+        "server": {
+          "ready": "Serwer otwarty na porcie {{port}}"
+        },
+        "account": {
+          "loading": "Ładowanie danych konta użytkownika",
+          "creating": "Tworzenie nowego konta użytkownika",
+          "address": "Adres konta użytkownika: {{address}}"
+        }
+      }
+    }
+}

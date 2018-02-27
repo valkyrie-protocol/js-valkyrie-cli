@@ -1,15 +1,29 @@
 import http from 'http'
 import SubnetsPinger from 'ping-subnet'
 import figlet from 'figlet'
+import inquirer from 'inquirer'
+import settings from '~/config/settings.json'
 import Logger from '~/config/Logger'
 import Account from '~/config/Account'
 import Server from '~/config/Server'
+import i18n from '~/config/locales'
 
 import '~/config/initializers'
 
+
 async function init(){
-  console.log(figlet.textSync('Crypto Notes Protocol'))
-  Logger.info(Logger.SCOPES.CORE,'\tInitializing application Core')
+  console.log(figlet.textSync(settings.appName))
+
+  const { lng } = await inquirer.prompt([{
+    name: 'lng',
+    type: 'list',
+    message: 'Language:',
+    choices: ['en', 'pl']
+  }])
+
+  i18n.changeLanguage(lng)
+
+  Logger.info(Logger.SCOPES.CORE,i18n.t('init.core'))
   try {
 
   if(! Account.isReady){
@@ -20,12 +34,12 @@ async function init(){
 
   const subnetPinger = new SubnetsPinger()
 
-  Logger.info(Logger.SCOPES.PEERS, '\tSearching for responding peers')
+  Logger.info(Logger.SCOPES.PEERS, i18n.t('init.peers.searching'))
 
   let peersCount = 0
 
   subnetPinger.on('host:alive', ip => {
-    Logger.info(Logger.SCOPES.PEERS, `\tAlive peer ${ip} has been found`)
+    Logger.info(Logger.SCOPES.PEERS, i18n.t('init.peers.found', {ip}))
 
     const request = http.request({
       host: ip,
@@ -37,14 +51,14 @@ async function init(){
     })
 
     request.on('error', function(error) {
-      Logger.info(Logger.SCOPES.PEERS, `\tPeer ${ip} is not responding`)
+      Logger.info(Logger.SCOPES.PEERS, i18n.t('init.peers.notResponding', {ip}))
     });
 
     request.end()
   });
 
   subnetPinger.once('ping:end', () => {
-    Logger.info(Logger.SCOPES.PEERS, `\t${peersCount} responding peers has been found`)
+    Logger.info(Logger.SCOPES.PEERS, i18n.t('init.peers.connected', {peersCount}))
   });
 
   subnetPinger.ping();
