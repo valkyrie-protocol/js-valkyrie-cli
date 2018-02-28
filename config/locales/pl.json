@@ -14,7 +14,8 @@
         "account": {
           "loading": "Ładowanie danych konta użytkownika",
           "creating": "Tworzenie nowego konta użytkownika",
-          "address": "Adres konta użytkownika: {{address}}"
+          "address": "Adres konta użytkownika: {{address}}",
+          "notExists": "Nie można załadować pliku z danymi użytkownika"
         }
       }
     }

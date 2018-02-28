@@ -65,6 +65,7 @@ async function init(){
 
   } catch(error){
    Logger.error(error)
+   console.log(error)
   }
 }
 

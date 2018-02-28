@@ -14,7 +14,8 @@
         "account": {
           "loading": "Loading account data",
           "creating": "Creating new account",
-          "address": "Account address is: {{address}}"
+          "address": "Account address is: {{address}}",
+          "notExists": "Can't load account data file"
         }
       }
     }

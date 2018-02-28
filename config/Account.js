@@ -2,62 +2,21 @@ import crypto2 from 'crypto2'
 import fs from 'fs'
 import Logger from '~/config/Logger'
 import DNS from '~/app/models/DNS'
-import accountData from '~/config/account.json'
 import inquirer from 'inquirer'
 import i18n from '~/config/locales'
 
-const account = {
-  publicKey: null,
-  privateKey: null,
-  address: null,
-}
+let account = null
 
 export default class Account{
   static async init(password){
-    let publicKey
-    let address
-    let privateKey
-    let secretPrivateKey
-
-    if(accountData){
-      Logger.info(Logger.SCOPES.ACCOUNT, i18n.t('init.account.loading'))
-      publicKey = accountData.publicKey
-      address = accountData.address
-    } else {
-      Logger.info(Logger.SCOPES.ACCOUNT, i18n.t('init.account.creating'))
-      const keys = await crypto2.createKeyPair()
-      privateKey = keys.privateKey
-      publicKey = keys.publicKey
-
-
-      const { password } = await inquirer.prompt([{
-        name: 'password',
-        type: 'password',
-        message: 'Enter a password:',
-      }])
-
-      secretPrivateKey = await crypto2.encrypt(privateKey, password)
-
-      const fileData = JSON.stringify({
-        publicKey,
-        address,
-        secretPrivateKey,
-      });
-
-      await fs.writeFile("./config/account.json", fileData)
-    }
-
-    address = await DNS.add(publicKey)
-    Logger.info(Logger.SCOPES.ACCOUNT, i18n.t('init.account.address', {address}))
-
-    account.address = address
-    account.publicKey = publicKey
-    account.privateKey = privateKey
+    Logger.info(Logger.SCOPES.ACCOUNT, i18n.t('init.account.loading'))
+    await this.loadAccount()
+    Logger.info(Logger.SCOPES.ACCOUNT, i18n.t('init.account.address', {address: account.address}))
   }
 
   static async signIn(password){
-    if(accountData){
-      const secretPrivateKey = accountData.secretPrivateKey
+    if(account){
+      const secretPrivateKey = account.secretPrivateKey
       account.privateKey = await crypto2.decrypt(secretPrivateKey, password)
     }
   }
@@ -66,16 +25,50 @@ export default class Account{
     account.privateKey = null
   }
 
+  static async createAccount(){
+    Logger.info(Logger.SCOPES.ACCOUNT, i18n.t('init.account.creating'))
+
+    const keys = await crypto2.createKeyPair()
+    account = {
+      privateKey: keys.privateKey,
+      publicKey: keys.publicKey,
+      address: await DNS.add(keys.publicKey),
+    }
+
+    const secretPrivateKey = await crypto2.encrypt(keys.privateKey, await this.getPassword())
+
+    const fileData = JSON.stringify({
+      publicKey: account.publicKey,
+      address: account.address,
+      secretPrivateKey,
+    })
+
+    await fs.writeFileSync('./data/account.dat', new Buffer(fileData).toString('base64'))
+  }
+
+  static async getPassword(){
+    const { password } = await inquirer.prompt([{
+      name: 'password',
+      type: 'password',
+      message: 'Enter a password:',
+    }])
+
+    return password
+  }
+
+  static async loadAccount(){
+    try {
+      const fileData = fs.readFileSync('./data/account.dat')
+      account = JSON.parse(new Buffer(fileData.toString('ascii'), 'base64').toString('ascii'))
+    } catch(error){
+      Logger.debug(Logger.SCOPES.ACCOUNT, i18n.t('init.account.notExists'))
+      await this.createAccount()
+    }
+  }
+
   static get isReady(){
-    return this.publicKey && this.privateKey && this.address
+    return account && account.publicKey && account.privateKey && account.address
   }
-  static get publicKey(){
-    return  account.publicKey
-  }
-  static get privateKey(){
-    return  account.privateKey
-  }
-  static get address(){
-    return  account.address
-  }
+
+
 }
