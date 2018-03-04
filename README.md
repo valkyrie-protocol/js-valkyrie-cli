@@ -1,4 +1,5 @@
-# Valkyria Protocole CLI
+# ![VALKYRIA PROTOCOLE](https://raw.githubusercontent.com/valkyria-protocol/js-valkyria-cli/master/logo.svg?sanitize=true)
+
 JavaScript CLI implementation of Valkyria Protocole node.
 
 ## Requirements
