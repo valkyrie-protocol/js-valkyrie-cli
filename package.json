@@ -1,5 +1,5 @@
 {
-  "name": "js-valkyria-cli",
+  "name": "js-valkyrie-cli",
   "version": "0.1.0",
   "main": "config/application.js",
   "license": "MIT",
@@ -35,7 +35,7 @@
     "winston": "^2.4.0",
     "ws": "^4.1.0"
   },
-  "description": "JavaScript CLI implementation of Valkyria Protocole ",
-  "repository": "https://github.com/valkyria-protocol/js-valkyria-cli",
+  "description": "JavaScript CLI implementation of Valkyrie Protocol.",
+  "repository": "https://github.com/valkyrie-protocol/js-valkyrie-cli",
   "author": "hculap"
 }

@@ -1,6 +1,6 @@
 # ![VALKYRIA PROTOCOLE](https://raw.githubusercontent.com/valkyria-protocol/js-valkyria-cli/master/logo.svg?sanitize=true)
 
-JavaScript CLI implementation of Valkyria Protocole node.
+JavaScript CLI implementation of Valkyria Protocol node.
 
 ## Requirements
 All you need to run CLI version of Valkyria node is [Node.js](https://nodejs.org/) with [NPM](https://www.npmjs.com/get-npm) (or [Yarn](https://yarnpkg.com/lang/en/docs/install/)).
