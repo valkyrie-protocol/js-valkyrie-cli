@@ -27,6 +27,7 @@ Logger.SCOPES = {
   ACCOUNT: '[Account]',
   PEERS: '[Peers]',
   SERVER: '[Server]',
+  BLOCKS: '[Blocks]'
 }
 
 

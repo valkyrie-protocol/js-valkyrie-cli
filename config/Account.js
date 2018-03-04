@@ -56,10 +56,29 @@ export default class Account{
     return password
   }
 
+  static get publicKey(){
+    if(account){
+      return account.publicKey
+    }
+  }
+
+  static get address(){
+    if(account){
+      return account.address
+    }
+  }
+
+  static get privateKey(){
+    if(account){
+      return account.privateKey
+    }
+  }
+
   static async loadAccount(){
     try {
       const fileData = fs.readFileSync('./data/account.dat')
       account = JSON.parse(new Buffer(fileData.toString('ascii'), 'base64').toString('ascii'))
+      await DNS.add(account.publicKey)
     } catch(error){
       Logger.debug(Logger.SCOPES.ACCOUNT, i18n.t('init.account.notExists'))
       await this.createAccount()

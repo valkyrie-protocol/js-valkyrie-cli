@@ -13,9 +13,9 @@ export default class Routes{
     router.get('/blocks/:hash', (request, response) => {
       new BlocksController({request, response}).show()
     })
-    router.post('/blocks', (request, response) => {
-      new BlocksController({request, response}).create()
-    })
+    // router.post('/blocks', (request, response) => {
+    //   new BlocksController({request, response}).create()
+    // })
     router.post('/account/sign_in', (request, response) => {
       new AccountController({request, response}).create()
     })

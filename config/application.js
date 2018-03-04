@@ -6,12 +6,13 @@ import settings from '~/config/settings.json'
 import Logger from '~/config/Logger'
 import Account from '~/config/Account'
 import Server from '~/config/Server'
+import CreateBlockJob from '~/app/jobs/CreateBlockJob'
 import i18n from '~/config/locales'
 
 import '~/config/initializers'
 
 
-async function init(){
+async function main(){
   console.log(figlet.textSync(settings.appName))
 
   const { lng } = await inquirer.prompt([{
@@ -63,12 +64,15 @@ async function init(){
 
   subnetPinger.ping();
 
+  const createBlockJob = new CreateBlockJob()
+  createBlockJob.execute()
+
   } catch(error){
    Logger.error(error)
    console.log(error)
   }
 }
 
-init()
+main()
 
 

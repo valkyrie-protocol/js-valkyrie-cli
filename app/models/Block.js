@@ -48,17 +48,6 @@ export default class Block extends CryptoModelMixin(BaseModel) {
     return this.entries.concat(newEntries)
   }
 
-  async mine(){
-    this.nonce = 1
-    await this.generateHash()
-    while(this.hash.substring(0, DIFFICULTY) !== new Array(DIFFICULTY + 1).join('0') && this.nonce > 0){
-      this.nonce += 1
-      await this.generateHash()
-    }
-    this.minedAt = new Date().getTime()
-    return this.nonce
-  }
-
   export(){
     return (({ hash, sender, prevBlockHash, height, nonce, minedAt, merkleRoot, entries, signature }) => ({ hash, sender, prevBlockHash, height, nonce, minedAt, merkleRoot, entries, signature }))(this)
   }
