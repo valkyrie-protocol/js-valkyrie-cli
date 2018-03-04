@@ -1,7 +1,7 @@
 {
-  "name": "valkyria-protocol",
-  "version": "1.0.0",
-  "main": "application.js",
+  "name": "js-valkyria-cli",
+  "version": "0.1.0",
+  "main": "config/application.js",
   "license": "MIT",
   "scripts": {
     "start": "babel-node config/application.js",
@@ -38,5 +38,8 @@
     "threads": "^0.10.1",
     "winston": "^2.4.0",
     "ws": "^4.1.0"
-  }
+  },
+  "description": "Java Script CLI implementation of Valkyria Protocole ",
+  "repository": "https://github.com/valkyria-protocol/js-valkyria-cli",
+  "author": "hculap"
 }
