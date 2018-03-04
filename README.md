@@ -1,14 +1,14 @@
-# ![VALKYRIA PROTOCOLE](https://raw.githubusercontent.com/valkyria-protocol/js-valkyria-cli/master/logo.svg?sanitize=true)
+# ![VALKYRIE PROTOCOL](https://raw.githubusercontent.com/valkyrie-protocol/js-valkyrie-cli/master/logo.svg?sanitize=true)
 
-JavaScript CLI implementation of Valkyria Protocol node.
+JavaScript CLI implementation of Valkyrie Protocol node.
 
 ## Requirements
-All you need to run CLI version of Valkyria node is [Node.js](https://nodejs.org/) with [NPM](https://www.npmjs.com/get-npm) (or [Yarn](https://yarnpkg.com/lang/en/docs/install/)).
+All you need to run CLI version of Valkyrie node is [Node.js](https://nodejs.org/) with [NPM](https://www.npmjs.com/get-npm) (or [Yarn](https://yarnpkg.com/lang/en/docs/install/)).
 
 ## Installation
 Project is still under development process so befor you star, you must clone project GIT repository.
 ```shell
-$ git clone https://github.com/valkyria-protocol/js-valkyria-cli.git
+$ git clone https://github.com/valkyrie-protocol/js-valkyrie-cli.git
 ```
 Then instal npm packages
 ```shell
@@ -20,7 +20,7 @@ $ yarn install
 ```
 
 ## Quick start
-Run Valkyria Protocole Node CLI from terminal command
+Run Valkyrie Protocol Node CLI from terminal command
 ```shell
 $ npm start
 ```
