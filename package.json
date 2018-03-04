@@ -17,19 +17,15 @@
     "jest": "^22.3.0"
   },
   "dependencies": {
-    "async-task": "^0.4.2",
     "background-worker": "^0.1.2",
     "body-parser": "^1.18.2",
     "crypto2": "^1.0.2",
     "encoding-down": "^4.0.0",
     "express": "^4.16.2",
     "figlet": "^1.2.0",
-    "i18n": "^0.8.3",
     "i18next": "^10.5.0",
     "i18next-sync-fs-backend": "^1.0.0",
     "inquirer": "^5.1.0",
-    "inquirer-async": "^1.1.0",
-    "js-string-compression": "^1.0.1",
     "leveldown": "^3.0.0",
     "levelup": "^2.0.2",
     "merkle": "^0.6.0",
@@ -39,7 +35,7 @@
     "winston": "^2.4.0",
     "ws": "^4.1.0"
   },
-  "description": "Java Script CLI implementation of Valkyria Protocole ",
+  "description": "JavaScript CLI implementation of Valkyria Protocole ",
   "repository": "https://github.com/valkyria-protocol/js-valkyria-cli",
   "author": "hculap"
 }
