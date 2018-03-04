@@ -1,2 +1,2 @@
 # js-valkyria-cli
-Java Script implementation of Valkyria Protocole
+Java Script CLI implementation of Valkyria Protocole
