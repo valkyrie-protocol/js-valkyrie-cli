@@ -1,4 +1,4 @@
-# JS Valkyria CLI
+# Valkyria Protocole CLI
 JavaScript CLI implementation of Valkyria Protocole node.
 
 ## Requirements
